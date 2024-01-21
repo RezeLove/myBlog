@@ -7,11 +7,11 @@ export default navbar([
     children: [
       {
         text: "vue源码学习",
-        link: "/vue源码学习/1.md",
+        link: "/vue-learn/响应式/1.md",
       },
       {
         text: "javascript笔记",
-        link: "/javascript/",
+        link: "/前端笔记/js/1.md",
       },
     ],
   },

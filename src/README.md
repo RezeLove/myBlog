@@ -4,7 +4,7 @@ layout: BlogHome
 icon: home
 title: 博客主页
 heroText: TX's Blog
-bgImage: https://picst.sunbangyan.cn/2023/10/31/20578255839aefdbbc4a163c84d9e94e.jpg
+bgImage: "/assets/images/bg-86.webp"
 heroFullScreen: true
 # heroImage: /logo.svg
 # tagline: 你可以在这里放置你的口号与标语

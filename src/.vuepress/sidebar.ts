@@ -19,8 +19,8 @@ export default sidebar({
   //   "intro",
   //   "slides",
   // ],
-  "/vue源码学习/": "structure",
-  "/javascript/": "structure",
+  "/vue-learn": "structure",
+  "/前端笔记/": "structure",
   "/posts/": "structure",
   "/算法题/": "structure",
 });

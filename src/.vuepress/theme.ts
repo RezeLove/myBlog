@@ -12,7 +12,6 @@ export default hopeTheme({
     name: "TX",
     url: "https://mister-hope.com",
   },
-
   iconAssets: "fontawesome-with-brands",
 
   logo: "/logo.svg",
@@ -137,7 +136,6 @@ export default hopeTheme({
       // revealJs: {
       //   plugins: ["highlight", "math", "search", "notes", "zoom"],
       // },
-
       stylize: [
         {
           matcher: "Recommended",

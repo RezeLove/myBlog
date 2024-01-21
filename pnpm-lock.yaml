@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+dependencies:
+  mathjax:
+    specifier: '3'
+    version: registry.npmmirror.com/mathjax@3.2.2
+
 devDependencies:
   '@vuepress/client':
     specifier: 2.0.0-beta.67
@@ -4696,6 +4701,12 @@ packages:
       mdurl: registry.npmmirror.com/mdurl@1.0.1
       uc.micro: registry.npmmirror.com/uc.micro@1.0.6
     dev: true
+
+  registry.npmmirror.com/mathjax@3.2.2:
+    resolution: {integrity: sha512-Bt+SSVU8eBG27zChVewOicYs7Xsdt40qm4+UpHyX7k0/O9NliPc+x77k1/FEsPsjKPZGJvtRZM1vO+geW0OhGw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mathjax/-/mathjax-3.2.2.tgz}
+    name: mathjax
+    version: 3.2.2
+    dev: false
 
   registry.npmmirror.com/mdurl@1.0.1:
     resolution: {integrity: sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mdurl/-/mdurl-1.0.1.tgz}
