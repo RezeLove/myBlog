@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class=square></div>
+    <div class="triangle1"></div>
+</body>
+<style>
+    div {
+        margin-bottom: 50px;
+    }
+
+    /* border */
+    /* .square {
+        width: 0;
+        height: 0;
+        border: 100px solid;
+        border-color: orangered skyblue gold yellowgreen;
+    }
+
+
+    .triangle1 {
+        width: 0;
+        height: 0;
+        border-left: 100px solid skyblue;
+        border-bottom: 100px solid transparent;
+        border-top: 100px solid transparent;
+    } */
+
+    /* linear-gradient */
+    /* .square {
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(45deg, deeppink, deeppink 50%, yellowgreen 50%, yellowgreen 100%);
+    }
+
+    .triangle1 {
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(45deg, deeppink, deeppink 50%, transparent 50%, transparent 100%);
+    } */
+
+    /* 角向渐变 */
+    /* .square {
+        width: 100px;
+        height: 100px;
+    } */
+
+    /* 
+        50% 0指的是圆心起点，在center top处
+        90deg指从90°的地方开始 0°-45°都是deeppink transparent 45.1deg是为了消除锯齿
+        */
+    /* .triangle1 {
+        width: 200px;
+        height: 200px;
+
+        background: conic-gradient(from 90deg at 50% 0, deeppink 0, deeppink 45deg, transparent 45.1deg);
+    } */
+
+    /* clip-path */
+    .triangle1 {
+        width: 300px;
+        height: 300px;
+        background-color: skyblue;
+        clip-path: polygon(0 25%,
+                50% 0,
+                100% 25%,
+                100% 75%,
+                50% 100%,
+                0 75%)
+    }
+</style>
+
+</html>

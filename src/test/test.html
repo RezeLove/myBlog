@@ -8,73 +8,73 @@
 </head>
 
 <body>
+    <header>header</header>
+    <aside>aside</aside>
     <button id="add">button2</button>
-
 </body>
-<script type="module" src="./test.js"></script>
-<!-- <script>
-    let addBtn = document.getElementById("add");
-    function debounce(fun, delay, immediate = false) {
-        let timer;
-        // 记录是否立即执行, 默认为false
-        let isImmediateInvoke = false;
-        return function event() {
-            if (timer) {
-                clearTimeout(timer);
-            }
-            // 获取入参
-            let args = arguments;
+<script>
+    // let addBtn = document.getElementById("add");
+    // function debounce(fun, delay, immediate = false) {
+    //     let timer;
+    //     // 记录是否立即执行, 默认为false
+    //     let isImmediateInvoke = false;
+    //     return function event() {
+    //         if (timer) {
+    //             clearTimeout(timer);
+    //         }
+    //         // 获取入参
+    //         let args = arguments;
 
-            // 当是第一次触发，并且需要触发第一次事件
-            if (!isImmediateInvoke && immediate) {
-                fun.apply(this, args);
-                // 将isImmediateInvoke设置为true，这样不会影响到后面频繁触发的函数调用
-                isImmediateInvoke = true;
-                timer = setTimeout(() => {
-                    isImmediateInvoke = false;
-                }, delay)
-            } else {
-                timer = setTimeout(() => {
-                    // 回调函数的this指向window是因为在winow中被执行，这里希望this能够指向event
-                    fun.apply(this, args);
+    //         // 当是第一次触发，并且需要触发第一次事件
+    //         if (!isImmediateInvoke && immediate) {
+    //             fun.apply(this, args);
+    //             // 将isImmediateInvoke设置为true，这样不会影响到后面频繁触发的函数调用
+    //             isImmediateInvoke = true;
+    //             timer = setTimeout(() => {
+    //                 isImmediateInvoke = false;
+    //             }, delay)
+    //         } else {
+    //             timer = setTimeout(() => {
+    //                 // 回调函数的this指向window是因为在winow中被执行，这里希望this能够指向event
+    //                 fun.apply(this, args);
 
-                    // 成功执行回调函数后，再将isImmediateInvoke设为false，保证下一轮的时候立即执行
-                    isImmediateInvoke = false;
-                }, delay);
-            }
+    //                 // 成功执行回调函数后，再将isImmediateInvoke设为false，保证下一轮的时候立即执行
+    //                 isImmediateInvoke = false;
+    //             }, delay);
+    //         }
 
-        };
-    }
-    // 节流
-    function throttle(fn, interval, pending = true) {
-        // 记录上一次执行时间
-        let lastTime = 0;
-        // false表示不需要延迟
-        let ispending = true;
-        return function event() {
-            const nowTime = new Date().getTime();
-            console.log(nowTime)
-            if (ispending && pending) {
-                // 将lastTime设置为nowTime，这样就不会导致第一次时remainTime大于interval
-                lastTime = nowTime;
-                // 将ispending设置为false，这样就才不会对后续的lastTime产生影响。
-                ispending = false;
-            }
-            const leftTime = nowTime - lastTime;
-            if (leftTime > interval) {
-                fn.apply(this, arguments);
-                // 将上一次函数执行的时间设置为nowTime，这样下次才能重新进入cd
-                lastTime = nowTime;
-                ispending = true;
-            }
-        };
-    }
-    function add(num) {
-        console.log("增加一个", num);
-        console.log(this)
-    }
+    //     };
+    // }
+    // // 节流
+    // function throttle(fn, interval, pending = true) {
+    //     // 记录上一次执行时间
+    //     let lastTime = 0;
+    //     // false表示不需要延迟
+    //     let ispending = true;
+    //     return function event() {
+    //         const nowTime = new Date().getTime();
+    //         console.log(nowTime)
+    //         if (ispending && pending) {
+    //             // 将lastTime设置为nowTime，这样就不会导致第一次时remainTime大于interval
+    //             lastTime = nowTime;
+    //             // 将ispending设置为false，这样就才不会对后续的lastTime产生影响。
+    //             ispending = false;
+    //         }
+    //         const leftTime = nowTime - lastTime;
+    //         if (leftTime > interval) {
+    //             fn.apply(this, arguments);
+    //             // 将上一次函数执行的时间设置为nowTime，这样下次才能重新进入cd
+    //             lastTime = nowTime;
+    //             ispending = true;
+    //         }
+    //     };
+    // }
+    // function add(num) {
+    //     console.log("增加一个", num);
+    //     console.log(this)
+    // }
 
-    addBtn.addEventListener("click", throttle(add, 1000, true)); -->
-<!-- </script> -->
+    // addBtn.addEventListener("click", throttle(add, 1000, true));
+</script>
 
 </html>
