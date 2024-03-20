@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div ref="list" class="infinite-list-container">
+        <div class="infinite-list-phantom"></div>
+        <div>123</div>
+    </div>
+</body>
+<style>
+    .infinite-list-container {
+        height: 100%;
+        overflow: auto;
+        position: relative;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .infinite-list-phantom {
+        height: 5000px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        z-index: -1;
+    }
+</style>
+
+</html>
