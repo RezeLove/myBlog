@@ -1,35 +1,27 @@
-function wrap(promise) {
-  // 在这里包装一个 promise，可以控制原来的promise是成功还是失败
-  let abort;
-  let newPromise = new Promise((resolve, reject) => {
-    // defer 方法
-    abort = reject;
-  });
-  let p = Promise.race([promise, newPromise]); // 任何一个先成功或者失败 就可以获取到结果
-  // 把自定义的promise的reject方法暴露给p
-  p.abort = abort;
-  return p;
-}
+// 入参的方式不同
+Function.prototype.apply1 = function (context, args) {
+  context = context || window;
 
-// 测试用例
-const promise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    // 模拟的接口调用 ajax 肯定有超时设置
-    resolve("成功");
-  }, 4000);
-});
+  // 给传入的对象添加属性，值为当前函数
+  const fn = Symbol();
+  context[fn] = this;
 
-let newPromise = wrap(promise);
+  // 判断第二个参数是否存在，不存在直接执行，否则拼接参数执行，并存储函数执行结果
+  let res = args.length === 0 ? context[fn]() : context[fn](...args);
 
-setTimeout(() => {
-  // 超过3秒 就算超时 应该让 proimise 走到失败态
-  newPromise.abort("超时了");
-}, 3000);
+  // 删除新增属性
+  delete context.fn;
 
-newPromise
-  .then((data) => {
-    console.log("成功的结果" + data);
-  })
-  .catch((e) => {
-    console.log("失败的结果" + e);
-  });
+  // 返回函数执行结果
+  return res;
+};
+
+const func = function (a, b, c) {
+  console.log(this.name, a + b + c);
+};
+
+const obj = {
+  name: 123,
+};
+
+func.apply1(obj, [1, 2, 3]);
