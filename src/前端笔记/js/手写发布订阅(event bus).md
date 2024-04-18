@@ -150,6 +150,83 @@ eventbus.$emit("a", "zb", 20);
 eventbus.$emit("a", "zb", 20);
 ```
 
+## 另一种实现 once 的思路：
+
+将 once 对应的回调函数进行包裹，执行完后就触发 off 事件
+
+```js
+class EventBus {
+  constructor() {
+    this.subscribers = {};
+  }
+
+  // 订阅事件
+  on(name, callback) {
+    if (!this.subscribers[name]) {
+      this.subscribers[name] = new Set();
+    }
+    this.subscribers[name].add(callback);
+  }
+
+  // 发布事件
+  emit(name, ...args) {
+    const eventList = this.subscribers[name];
+    if (eventList) {
+      for (const event of eventList) {
+        event(...args);
+      }
+    }
+  }
+
+  // 取消订阅事件
+  off(name, callback) {
+    const eventList = this.subscribers[name];
+    if (eventList) {
+      eventList.delete(callback);
+      if (eventList.size === 0) {
+        delete this.subscribers[name];
+      }
+    }
+  }
+
+  // 一次性订阅事件
+  once(name, callback) {
+    const onceCallback = (...args) => {
+      callback(...args);
+      this.off(name, onceCallback);
+    };
+    this.on(name, onceCallback);
+  }
+}
+
+// 示例用法
+const eventBus = new EventBus();
+
+// 订阅事件
+eventBus.on("message", (data) => {
+  console.log("Message received:", data);
+});
+
+// 发布事件
+eventBus.emit("message", "Hello, world!");
+
+// 取消订阅事件
+const callback = (data) => {
+  console.log("Callback:", data);
+};
+eventBus.on("test", callback);
+eventBus.emit("test", "Testing 1");
+eventBus.off("test", callback);
+eventBus.emit("test", "Testing 2");
+
+// 一次性订阅事件
+eventBus.once("onceEvent", () => {
+  console.log("This should only happen once.");
+});
+eventBus.emit("onceEvent");
+eventBus.emit("onceEvent");
+```
+
 ## 完整版
 
 ```js
