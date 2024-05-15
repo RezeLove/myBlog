@@ -2,12 +2,11 @@ const MAX_CONCURRENT_LOADS = 5; // 设置最大同时加载图片的数量
 let currentIndex = 0;
 const results = [];
 
-async function loadImage(url, index) {
+async function loadImage(url) {
   // 模拟图片加载延迟
-  await new Promise((resolve) => setTimeout(resolve, Math.random() * 1000));
-
-  // 返回加载结果和索引
-  return url;
+  return new Promise((resolve) =>
+    setTimeout(resolve(url), Math.random() * 1000)
+  );
 }
 
 async function loadImages(urls) {
@@ -35,6 +34,7 @@ async function loadImages(urls) {
     inProgress.splice(indexToRemove, 1);
     inIndex.splice(indexToRemove, 1);
   }
+  console.log("你好");
   // 等待所有剩余的 Promise 完成
   const left = await Promise.all(inProgress);
   for (let currentUrl of left) {
@@ -57,3 +57,4 @@ const urls = [
   "url10",
 ];
 loadImages(urls);
+console.log("123");
