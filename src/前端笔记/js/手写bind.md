@@ -77,23 +77,21 @@ ES6 为 new 命令引入了一个 new.target 属性，该属性一般用在构�
 > 最终版 bind
 
 ```js
-Function.prototype.myBind = function (context) {
+Function.prototype.myBind = function (context, ...preArgs) {
   // 箭头函数没有this，因此无法调用bind，这里需要排除
   if (typeof this !== "function") {
     throw new TypeError("error");
   }
   context = context || window;
   // 保存当前的this
-  let that = this,
-    //取出参数
-    args = [...arguments].slice(1);
+  let that = this;
 
   // 闭包，返回一个函数
-  let cb = function Fn() {
+  let cb = function Fn(...innerArgs) {
     // es6的语法
     const isNew = typeof new.target !== "undefined"; // 判断函数是否被new过
 
-    const innerArgs = [...arguments];
+    const innerArgs = [...preArgs, ...innerArgs];
 
     // 如果new过，会生成一个this，绑定这个this(即创造的示例函数)即可，后面的参数不变
     return that.apply(isNew ? this : context, innerArgs);
