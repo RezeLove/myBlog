@@ -1,7 +1,7 @@
 ---
 title: nextTick的用法与原理
 icon: laptop-code
-order: 10
+order: 23
 category:
   - 使用指南
   - vue
