@@ -67,9 +67,9 @@ function myNew(Fn, ...args) {
   if (typeof Fn !== "function")
     throw new TypeError("This is not a constructor");
   // Object.create() 是 JavaScript 提供的一个内建方法，用于创建一个新的对象，并将其原型（__proto__）指向指定的对象
-  const obj = Object.create(constructor.prototype);
+  const obj = Object.create(Fn.prototype);
   const res = Fn.apply(obj, args);
   // 检验res是否为对象，解决问题3
-  return typeof result === "object" && result !== null ? result : obj;
+  return typeof res === "object" && res !== null ? res : obj;
 }
 ```
